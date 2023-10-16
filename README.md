@@ -1,5 +1,7 @@
 # UssefulMSSQL
-CREATE OR ALTER FUNCTION [dbo].[SuSy_EncryptString] ( @pClearString VARCHAR(100) )
+**String Encryption**
+
+CREATE FUNCTION [dbo].[ufn_EncryptString] ( @pClearString VARCHAR(100) )
 RETURNS NVARCHAR(100) WITH ENCRYPTION AS
 BEGIN
     
@@ -24,8 +26,10 @@ BEGIN
 END
 GO
 
+**String Decryption**
+Now that the data is encrypted in the table, it is now time to provide the user-defined function that will decrypt the encrypted string.  Below is the user-defined function that performs the opposite of the encryption function above.
 
-CREATE OR ALTER FUNCTION [dbo].[SuSy_DecryptString] ( @pEncryptedString NVARCHAR(100) )
+CREATE FUNCTION [dbo].[ufn_DecryptString] ( @pEncryptedString NVARCHAR(100) )
 RETURNS VARCHAR(100) WITH ENCRYPTION AS
 BEGIN
 
